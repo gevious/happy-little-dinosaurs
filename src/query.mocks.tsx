@@ -37,21 +37,32 @@ const HannahsHand = [
 ];
 
 export const mocks: any[] = [{
-	request: {
-		query: GET_GAME_DETAILS,
-	},
-	result: {
-		data: {
-			gameDetails: GameDetails
-		}
-	}
+    request: {
+      query: GET_GAME_DETAILS,
+    },
+    result: {
+      data: {
+	gameDetails: GameDetails
+      }
+    }
 }, {
-	request: {
-		query: GET_YOUR_HAND,
-	},
-	result: {
-		data: {
-		  cards: [...DanielsHand, ...HannahsHand]
-		}
-	}
+    request: {
+      query: GET_YOUR_HAND,
+      variables: { user: 'hannah' }
+    },
+    result: {
+      data: {
+	cards: HannahsHand
+      }
+    },
+}, {
+    request: {
+      query: GET_YOUR_HAND,
+      variables: { user: 'daniel' }
+    },
+    result: {
+      data: {
+	cards: DanielsHand
+      }
+    }
 }];

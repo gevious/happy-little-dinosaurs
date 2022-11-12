@@ -1,9 +1,10 @@
 import { gql, useQuery } from '@apollo/client';
 import { Box, Card, CardContent, Typography } from '@mui/material';
+import useAuthenticated from '../../hooks/useAuthenticated';
 
 export const GET_YOUR_HAND = gql`
-  query YourHand {
-    cards {
+  query YourHand($user: String) {
+    cards(user: $user) {
       score
       title
       ability
@@ -21,7 +22,13 @@ interface CardData {
   cards: PlayingCard[]
 }
 const PrivateCards = () => {
-  const { loading, error, data } = useQuery<CardData>(GET_YOUR_HAND);
+  const {
+    user
+  } = useAuthenticated();
+
+  const { loading, error, data } = useQuery<CardData>(GET_YOUR_HAND, {
+    variables: { user }
+  });
 
   if (loading) return (<p>Loading ...</p>);
   if (error) return (<p>Error! </p>);
