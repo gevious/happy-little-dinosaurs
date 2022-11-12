@@ -37,13 +37,13 @@ const PrivateCards = () => {
 
   return (
     <Box aria-label="All cards in your hand">
-      <Typography variant="h5">
+      <Typography>
         Your Hand
       </Typography>
       {cards.map((c) => (
 	<Card aria-label="Playing Card">
 	  <CardContent>
-	    <Typography variant="h6">
+	    <Typography>
 	      {c.title} - {c.score}
 	    </Typography>
 	    <Typography variant="body2">

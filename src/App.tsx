@@ -25,7 +25,7 @@ function App() {
       >
 	<Toolbar>
           <Typography
-            variant="h2" align="center" noWrap component="div"
+            align="center" noWrap component="div"
             sx={{ flexGrow: 1 }}
           >
 	    Happy Little Dinosaurs
