@@ -13,14 +13,10 @@ const SignIn = () => {
   const isValid = user !== ``;
 
   const authenticate = async (username: string) => {
-    if (username === 'hannah') {
-      setIsAuthenticated(username);
-      setMessage('');
-    } else if (username === 'daniel') {
-      setIsAuthenticated(username);
-      setMessage('');
-    } else if (username === 'dad') {
-      setIsAuthenticated(username);
+    if (username.toLowerCase() === 'hannah' ||
+        username.toLowerCase() === 'daniel' ||
+	username.toLowerCase() === 'admin') {
+      setIsAuthenticated(username.toLowerCase());
       setMessage('');
     } else {
       alert("Invalid Username");
@@ -42,13 +38,13 @@ const SignIn = () => {
 	<DialogTitle>Sign In</DialogTitle>
 	<DialogContent>
 	  <DialogContentText>
-	  Enter username to sign in.
+	  Enter your name
 	  </DialogContentText>
 	  <TextField
 	    autoFocus
 	    name="user"
 	    id="user_input"
-	    label="username"
+	    label="name"
 	    fullWidth
 	    onKeyDown={(e) => handleKeyDown(e)}
 	    onChange={(e) => setUser(e.target.value as string)}
