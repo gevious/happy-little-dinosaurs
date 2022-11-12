@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box sx={{ display: 'flex', flexGrow: 1, alignContent: "center"}}>
+      <AppBar
+        position="fixed"
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+        }}
+      >
+	<Toolbar>
+          <Typography
+            variant="h2" align="center" noWrap component="div"
+            sx={{ flexGrow: 1 }}
+          >
+	    Happy Little Dinosaurs
+	  </Typography>
+        </Toolbar>
+      </AppBar>
+      <Box component="main" 
+           sx={{ flexGrow: 1, p: 3, mt: 5 }}>
+    HLD
+      </Box>
+    </Box>
   );
 }
 
